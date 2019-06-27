@@ -1,12 +1,12 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// remove the old generated bundles so they don't clutter the space
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public')
-  },
   module: {
     rules: [
       {
@@ -23,5 +23,15 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.jsx', '.js']
-  }
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/template.html'
+    })
+  ],
+  output: {
+    filename: '[hash].bundle.js',
+    path: path.resolve(__dirname, 'public')
+  },
 };
