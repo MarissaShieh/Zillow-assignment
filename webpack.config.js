@@ -39,7 +39,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: [{
+        use: ['@svgr/webpack', {
           loader: 'url-loader',
           options: { 
               limit: 1000, // Convert images < 1mb to base64 strings
