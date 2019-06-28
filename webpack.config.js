@@ -36,6 +36,16 @@ module.exports = {
             name: 'assets/[hash].[ext]'
           }
         }]
+      },
+      {
+        test: /\.svg$/,
+        use: [{
+          loader: 'url-loader',
+          options: { 
+              limit: 1000, // Convert images < 1mb to base64 strings
+              name: 'assets/[hash].svg'
+          } 
+        }]
       }
     ]
   },
