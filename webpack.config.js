@@ -1,7 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-// remove the old generated bundles so they don't clutter the space
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -53,7 +51,7 @@ module.exports = {
     extensions: ['*', '.jsx', '.js']
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin(), // remove the old generated bundles so they don't clutter the space
     new HtmlWebpackPlugin({
       template: './src/template.html'
     }),
