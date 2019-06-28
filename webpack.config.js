@@ -27,7 +27,16 @@ module.exports = {
             "css-loader", // translates CSS into CommonJS
             "sass-loader" // compiles Sass to CSS, using Node Sass by default
         ]
-    }
+      },
+      {
+        test: /\.(png|jp(e*)g|gif)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: 'assets/[hash].[ext]'
+          }
+        }]
+      }
     ]
   },
   resolve: {
