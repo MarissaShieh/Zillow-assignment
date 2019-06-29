@@ -2,7 +2,11 @@ import masterBedroom from '../assets/ialicante-mediterranean-homes-master-unspla
 import front from '../assets/ialicante-mediterranean-homes-front-unsplash.jpg';
 import kitchen from '../assets/ialicante-mediterranean-homes-kitchen-unsplash.jpg';
 import juniorBedroom from '../assets/ialicante-mediterranean-homes-bed1-unsplash.jpg';
-import stairs from '../assets/ialicante-mediterranean-homes-stairs-unsplash.jpg';
+import bathroom from '../assets/ialicante-mediterranean-homes-bathroom-unsplash.jpg';
+import livingRoom from '../assets/ialicante-mediterranean-homes-livingRoom-unsplash.jpg';
+import outdoors from '../assets/ialicante-mediterranean-homes-outdoors-unsplash.jpg';
+
+
 
 const data = [
   {
@@ -18,12 +22,20 @@ const data = [
     caption: 'The kitchen at the center of the home'
   },
   {
-    url: `${stairs}`,
-    caption: 'Stairs between floors'
+    url: `${bathroom}`,
+    caption: 'Tub and towels in the middle of the room'
   },
   {
     url: `${juniorBedroom}`,
     caption: 'The smaller of the two bedrooms'
+  },
+  {
+    url: `${livingRoom}`,
+    caption: 'Living room for playing games and relaxing'
+  },
+  {
+    url: `${outdoors}`,
+    caption: 'Photo of the space around the home'
   }
 ];
 
