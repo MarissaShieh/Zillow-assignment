@@ -9,8 +9,11 @@ class PhotoGallery extends React.Component {
     this.state = {
       loading: true,
       photos: [],
-      currentPhotoIndex: null
+      currentPhotoIndex: null,
+      photoArrayLength: null
     }
+    this.handleClick = this.handleClick.bind(this);
+    this.generateArrowProps = this.generateArrowProps.bind(this);
   }
 
   componentDidMount() {
@@ -21,16 +24,32 @@ class PhotoGallery extends React.Component {
       loading: false,
       photos,
       currentPhotoIndex: 0,
+      indexOfLastPhoto: photos.length - 1
     });
+  }
+
+  handleClick(newPhotoIndex) {
+    this.setState({
+      currentPhotoIndex: newPhotoIndex
+    });
+  }
+
+  generateArrowProps(side) {
+    return {
+      side,
+      index: this.state.currentPhotoIndex,
+      indexOfLastPhoto: this.state.indexOfLastPhoto,
+      handleClick: this.handleClick
+    }
   }
 
   render(){
     return (
       <div className="container">
-        <SideArrow side="left" index={this.state.currentPhotoIndex}/>
+        <SideArrow {...this.generateArrowProps("left")}/>
         {this.state.loading? <div>Loading...</div> : 
-          <DisplayImage image={this.state.photos[this.state.currentPhotoIndex]}/>} 
-        <SideArrow side="right" index={this.state.currentPhotoIndex}/>
+          <DisplayImage image={this.state.photos[this.state.currentPhotoIndex]} />} 
+        <SideArrow {...this.generateArrowProps("right")}/>
       </div>
     )
   }
