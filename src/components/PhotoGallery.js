@@ -1,5 +1,6 @@
 import React from 'react';
 import DisplayImage from './DisplayImage';
+import SideArrow from './SideArrow';
 import samplePhotos from '../data/samplePhotoData';
 
 class PhotoGallery extends React.Component {
@@ -26,10 +27,10 @@ class PhotoGallery extends React.Component {
   render(){
     return (
       <div className="container">
-        <i className="fas fa-arrow-circle-left"></i>
+        <SideArrow side="left" index={this.state.currentPhotoIndex}/>
         {this.state.loading? <div>Loading...</div> : 
           <DisplayImage image={this.state.photos[this.state.currentPhotoIndex]}/>} 
-        <i className="fas fa-arrow-circle-right"></i>
+        <SideArrow side="right" index={this.state.currentPhotoIndex}/>
       </div>
     )
   }
