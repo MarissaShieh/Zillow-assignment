@@ -1,11 +1,28 @@
-$font-stack:    Helvetica, sans-serif;
+$font-stack: "Courier New", Georgia, Helvetica;
 $primary-color: blue;
 
 body {
-  font: 100% $font-stack;
+  font-family: 100% $font-stack;
   color: $primary-color;
+  background-color: gray;
+}
+
+figure {
+  border: thick #c0c0c0 solid;
+  display: flex;
+  flex-flow: column;
+  padding: 5px;
+  margin: auto;
 }
 
 img {
-  width: 50%;
+  width: 100%;
+}
+
+figcaption {
+  background-color: #222;
+  color: #fff;
+  font-family: $font-stack;
+  padding: 3px;
+  text-align: center;
 }
