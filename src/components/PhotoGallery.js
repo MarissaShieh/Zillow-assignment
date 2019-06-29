@@ -37,9 +37,9 @@ class PhotoGallery extends React.Component {
   generateArrowProps(side) {
     return {
       side,
-      index: this.state.currentPhotoIndex,
+      currentIndex: this.state.currentPhotoIndex,
       indexOfLastPhoto: this.state.indexOfLastPhoto,
-      handleClick: this.handleClick
+      updateDisplay: this.handleClick
     }
   }
 
