@@ -51,13 +51,13 @@ module.exports = {
     extensions: ['*', '.jsx', '.js']
   },
   plugins: [
-    new CleanWebpackPlugin(), // remove the old generated bundles so they don't clutter the space
     new HtmlWebpackPlugin({
       template: './src/template.html'
     }),
     new MiniCssExtractPlugin({
       filename: "[hash].css"
-    })
+    }),
+    new CleanWebpackPlugin() // remove the old generated bundles so they don't clutter the space
   ],
   output: {
     filename: '[hash].bundle.js',

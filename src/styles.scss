@@ -1,5 +1,5 @@
 $font-stack: "Courier New", Georgia, Helvetica;
-$primary-color: blue;
+$primary-color: white;
 
 body {
   font-family: 100% $font-stack;
@@ -25,4 +25,14 @@ figcaption {
   font-family: $font-stack;
   padding: 3px;
   text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.fas {
+  font-size: 4em;
 }

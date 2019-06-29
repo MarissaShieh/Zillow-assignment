@@ -25,9 +25,11 @@ class PhotoGallery extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className="container">
+        <i className="fas fa-arrow-circle-left"></i>
         {this.state.loading? <div>Loading...</div> : 
           <DisplayImage image={this.state.photos[this.state.currentPhotoIndex]}/>} 
+        <i className="fas fa-arrow-circle-right"></i>
       </div>
     )
   }
