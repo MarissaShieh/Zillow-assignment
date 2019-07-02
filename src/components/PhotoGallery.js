@@ -2,7 +2,7 @@ import React from 'react';
 import DisplayImage from './DisplayImage';
 import SideArrow from './SideArrow';
 import samplePhotos from '../data/samplePhotoData';
-import {Swipeable} from 'react-swipeable'
+import { Swipeable } from 'react-swipeable'
 
 class PhotoGallery extends React.Component {
   constructor(){
@@ -13,8 +13,9 @@ class PhotoGallery extends React.Component {
       currentPhotoIndex: null,
       photoArrayLength: null
     }
-    this.handleClick = this.handleClick.bind(this);
+    this.handleAction = this.handleAction.bind(this);
     this.generateArrowProps = this.generateArrowProps.bind(this);
+    this.swipeableConfigurations = this.swipeableConfigurations.bind(this);
   }
 
   componentDidMount() {
@@ -24,47 +25,49 @@ class PhotoGallery extends React.Component {
     this.setState({
       loading: false,
       photos,
-      currentPhotoIndex: 0,
-      indexOfLastPhoto: photos.length - 1
+      currentPhotoIndex: 0
     });
   }
 
-  handleClick(newPhotoIndex) {
-    console.log('hi');
+  handleAction(direction) {
+    const { currentPhotoIndex, photos} = this.state
+    const indexOfLastPhoto = photos.length - 1;
+    let newPhotoIndex = 0;
+    if (direction === "left") {
+      newPhotoIndex = (currentPhotoIndex === indexOfLastPhoto)? 
+        0: currentPhotoIndex + 1
+    } else {
+      newPhotoIndex = (currentPhotoIndex === 0)? 
+        indexOfLastPhoto: currentPhotoIndex - 1
+    }
     this.setState({
       currentPhotoIndex: newPhotoIndex
     });
   }
 
-  generateArrowProps(side) {
+  swipeableConfigurations() {
     return {
-      side,
-      currentIndex: this.state.currentPhotoIndex,
-      indexOfLastPhoto: this.state.indexOfLastPhoto,
-      updateDisplay: this.handleClick
-    }
-  }
-
-  render(){
-    const { loading, photos, currentPhotoIndex, indexOfLastPhoto} = this.state;
-
-    const config = {
-      onSwipedLeft: () => this.handleClick((currentPhotoIndex === indexOfLastPhoto)? 0: currentPhotoIndex + 1),
-      onSwipedRight: () => this.handleClick((currentPhotoIndex === 0)? indexOfLastPhoto: currentPhotoIndex - 1),
+      onSwipedLeft: () => this.handleAction("left"),
+      onSwipedRight: () => this.handleAction("right"),
       preventDefaultTouchmoveEvent: true,
       trackMouse: true
     };
+  }
+
+  render(){
+    const { loading, photos, currentPhotoIndex } = this.state;
+    const { swipeableConfigurations, handleAction } = this;
 
     return (
-      <Swipeable {...config}>
-        <div className="container">
-          <SideArrow {...this.generateArrowProps("left")}/>
+      <Swipeable {...swipeableConfigurations()} >
+        <div className="container" >
+          <SideArrow side={"left"} updateDisplay={handleAction} />
           {loading? 
             (<svg width="500" height="500" viewBox="0 0 100 100">  
               <rect width="100" height="100" rx="10" ry="10" fill="#CCC" />
             </svg>) : 
             <DisplayImage display={!loading} image={photos[currentPhotoIndex]} />}
-          <SideArrow {...this.generateArrowProps("right")}/>
+          <SideArrow side={"right"} updateDisplay={handleAction} />
         </div>
       </Swipeable>
     )

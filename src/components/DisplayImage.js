@@ -6,6 +6,7 @@ function DisplayImage(props) {
   return (
     <TransitionGroup>
       <CSSTransition
+        mountOnEnter
         in={display}
         appear={true}
         timeout={200}
