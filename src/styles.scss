@@ -5,6 +5,10 @@ body {
   font-family: 100% $font-stack;
   color: $primary-color;
   background-color: gray;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-around;
+  // align-items: center;
 }
 
 figure {
@@ -16,7 +20,10 @@ figure {
 }
 
 img {
+  display: flex;
+  justify-content: center;
   width: 80%;
+  align-self: center;
 }
 
 figcaption {
@@ -35,6 +42,7 @@ figcaption {
 
 .fas {
   font-size: 4em;
+  // align-self: center;
 }
 
 .carousel-appear {

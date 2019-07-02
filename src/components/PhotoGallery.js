@@ -48,7 +48,10 @@ class PhotoGallery extends React.Component {
     return (
       <div className="container">
         <SideArrow {...this.generateArrowProps("left")}/>
-        {loading? <div>Loading...</div> : 
+        {loading? 
+          (<svg width="500" height="500" viewBox="0 0 100 100">  
+            <rect width="100" height="100" rx="10" ry="10" fill="#CCC" />
+          </svg>) : 
           <DisplayImage display={!loading} image={photos[currentPhotoIndex]} />}
         <SideArrow {...this.generateArrowProps("right")}/>
       </div>
