@@ -16,7 +16,7 @@ figure {
 }
 
 img {
-  width: 100%;
+  width: 80%;
 }
 
 figcaption {
@@ -42,7 +42,7 @@ figcaption {
 }
 .carousel-appear-active {
   opacity: 1;
-  transition: all 10000ms ease-out;
+  transition: all 200ms ease-out;
 }
 
 .carousel-enter {
@@ -50,7 +50,7 @@ figcaption {
 }
 .carousel-enter-active {
   opacity: 1;
-  transition: all 10000ms ease-out;
+  transition: all 200ms ease-out;
 }
 
 .carousel-exit {
@@ -58,5 +58,5 @@ figcaption {
 }
 .carousel-exit-active {
   opacity: 0;
-  transition: opacity 300ms, transform 300ms;
+  transition: opacity 300ms linear;
 }

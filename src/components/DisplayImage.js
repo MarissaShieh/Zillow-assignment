@@ -1,16 +1,16 @@
 import React from 'react';
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 function DisplayImage(props) {
   const { display, image } = props;
   return (
-    <>
+    <TransitionGroup>
       <CSSTransition
         in={display}
         appear={true}
-        timeout={4000}
+        timeout={200}
+        key={image.url}
         classNames="carousel"
-        onEnter={() => { console.log('Invoked!') }}
         unmountOnExit
         >
         <figure>
@@ -18,7 +18,7 @@ function DisplayImage(props) {
           <figcaption>{image.caption}</figcaption>      
         </figure>
        </CSSTransition>
-    </>
+    </TransitionGroup>
   )
 
 };
