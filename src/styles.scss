@@ -36,3 +36,27 @@ figcaption {
 .fas {
   font-size: 4em;
 }
+
+.carousel-appear {
+  opacity: 0;
+}
+.carousel-appear-active {
+  opacity: 1;
+  transition: all 10000ms ease-out;
+}
+
+.carousel-enter {
+  opacity: 0;
+}
+.carousel-enter-active {
+  opacity: 1;
+  transition: all 10000ms ease-out;
+}
+
+.carousel-exit {
+  opacity: 1;
+}
+.carousel-exit-active {
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}

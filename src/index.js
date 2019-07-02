@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles.scss';
 import PhotoGallery from './components/PhotoGallery';
+import './styles.scss';
 
 ReactDOM.render(<PhotoGallery />, document.getElementById('app'));

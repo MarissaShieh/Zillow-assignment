@@ -44,12 +44,12 @@ class PhotoGallery extends React.Component {
   }
 
   render(){
-    const { loading, photos, currentPhotoIndex } = this.state;
+    const { loading, photos, currentPhotoIndex} = this.state;
     return (
       <div className="container">
         <SideArrow {...this.generateArrowProps("left")}/>
         {loading? <div>Loading...</div> : 
-          <DisplayImage display={!loading} image={photos[currentPhotoIndex]} />} 
+          <DisplayImage display={!loading} image={photos[currentPhotoIndex]} />}
         <SideArrow {...this.generateArrowProps("right")}/>
       </div>
     )
