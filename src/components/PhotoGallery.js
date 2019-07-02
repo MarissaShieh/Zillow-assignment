@@ -2,6 +2,7 @@ import React from 'react';
 import DisplayImage from './DisplayImage';
 import SideArrow from './SideArrow';
 import samplePhotos from '../data/samplePhotoData';
+import {Swipeable} from 'react-swipeable'
 
 class PhotoGallery extends React.Component {
   constructor(){
@@ -29,6 +30,7 @@ class PhotoGallery extends React.Component {
   }
 
   handleClick(newPhotoIndex) {
+    console.log('hi');
     this.setState({
       currentPhotoIndex: newPhotoIndex
     });
@@ -44,17 +46,27 @@ class PhotoGallery extends React.Component {
   }
 
   render(){
-    const { loading, photos, currentPhotoIndex} = this.state;
+    const { loading, photos, currentPhotoIndex, indexOfLastPhoto} = this.state;
+
+    const config = {
+      onSwipedLeft: () => this.handleClick((currentPhotoIndex === indexOfLastPhoto)? 0: currentPhotoIndex + 1),
+      onSwipedRight: () => this.handleClick((currentPhotoIndex === 0)? indexOfLastPhoto: currentPhotoIndex - 1),
+      preventDefaultTouchmoveEvent: true,
+      trackMouse: true
+    };
+
     return (
-      <div className="container">
-        <SideArrow {...this.generateArrowProps("left")}/>
-        {loading? 
-          (<svg width="500" height="500" viewBox="0 0 100 100">  
-            <rect width="100" height="100" rx="10" ry="10" fill="#CCC" />
-          </svg>) : 
-          <DisplayImage display={!loading} image={photos[currentPhotoIndex]} />}
-        <SideArrow {...this.generateArrowProps("right")}/>
-      </div>
+      <Swipeable {...config}>
+        <div className="container">
+          <SideArrow {...this.generateArrowProps("left")}/>
+          {loading? 
+            (<svg width="500" height="500" viewBox="0 0 100 100">  
+              <rect width="100" height="100" rx="10" ry="10" fill="#CCC" />
+            </svg>) : 
+            <DisplayImage display={!loading} image={photos[currentPhotoIndex]} />}
+          <SideArrow {...this.generateArrowProps("right")}/>
+        </div>
+      </Swipeable>
     )
   }
 }
