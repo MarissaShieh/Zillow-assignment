@@ -17,11 +17,11 @@ Part I:
 - Handles SVG file with .svg extension; return a base-64 data-encoded string if the file is < 1mb and a link to the file otherwise    
   
 Part II:  
--The PhotoGallery component should take in an array of images.  
--Each image will have a url and a caption.  
--The captions should be displayed over the image.  
--The PhotoGallery should allow users to either click or swipe through images.  
--Animate the swipe and transition between images.  
+- The PhotoGallery component should take in an array of images.  
+- Each image will have a url and a caption.  
+- The captions should be displayed over the image.  
+- The PhotoGallery should allow users to either click or swipe through images.  
+- Animate the swipe and transition between images.  
 
 
 
