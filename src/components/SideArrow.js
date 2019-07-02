@@ -9,6 +9,7 @@ class SideArrow extends React.Component {
   handleClick() {
     const { side, updateDisplay, currentIndex, indexOfLastPhoto } = this.props;
     let newIndex = 0;
+    // allow user to keep clicking left/right buttons, even if at end of array
     if (side === "left") {
       newIndex = (currentIndex === 0)? indexOfLastPhoto: currentIndex - 1;
     } else if (side === "right") {
