@@ -14,7 +14,6 @@ class PhotoGallery extends React.Component {
       photoArrayLength: null
     }
     this.handleAction = this.handleAction.bind(this);
-    this.generateArrowProps = this.generateArrowProps.bind(this);
     this.swipeableConfigurations = this.swipeableConfigurations.bind(this);
   }
 

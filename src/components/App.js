@@ -2,6 +2,7 @@ import React from 'react';
 import puppy from '../assets/running_puppy.jpg';
 import wheelUrl, { ReactComponent as Wheel } from '../assets/settings.svg';
 
+// Part 1 of assignment
 function App() {
   return (
     <div>
